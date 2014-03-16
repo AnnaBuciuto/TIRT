@@ -6,7 +6,7 @@ public class RandomPlacingStrategyTest {
 
     @Test
     public void testPlaceAccessPoints() {
-
+        // TODO
     }
 
 }
