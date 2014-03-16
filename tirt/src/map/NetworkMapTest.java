@@ -1,10 +1,8 @@
 package map;
 
-import com.sun.deploy.util.StringUtils;
+import map.element.MapElement;
+import map.element.User;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
@@ -19,14 +17,8 @@ public class NetworkMapTest {
                         "xxuxx\n" +
                         "xxxxu\n" +
                         "uxxxx\n";
-        NetworkMap map = createMap(mapAsString);
+        NetworkMap map = new NetworkMap(mapAsString);
         assertEquals(mapAsString, map.toString());
-    }
-
-    private NetworkMap createMap(String map) {
-        String[] mapAsStringArray = StringUtils.splitString(map, "\n");
-        List<String> mapAsStringList = Arrays.asList(mapAsStringArray);
-        return new NetworkMap(mapAsStringList);
     }
 
     @Test
@@ -34,7 +26,7 @@ public class NetworkMapTest {
         String mapAsString =
                 "xxoxx\n" +
                         "xxuox";
-        NetworkMap map = createMap(mapAsString);
+        NetworkMap map = new NetworkMap(mapAsString);
         MapElement e = map.getElement(2, 1);
         assertThat(e, instanceOf(User.class));
     }
@@ -44,7 +36,7 @@ public class NetworkMapTest {
         String mapAsString =
                 "uxoxx\n" +
                         "xxoox";
-        NetworkMap map = createMap(mapAsString);
+        NetworkMap map = new NetworkMap(mapAsString);
         map.setElement(0, 0, new User());
         MapElement e = map.getElement(0, 0);
         assertThat(e, instanceOf(User.class));

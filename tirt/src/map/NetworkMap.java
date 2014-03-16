@@ -1,7 +1,12 @@
 package map;
 
 
+import com.sun.deploy.util.StringUtils;
+import map.element.MapElement;
+import map.element.User;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NetworkMap {
@@ -14,6 +19,10 @@ public class NetworkMap {
             MapLine line = new MapLine(inputLine);
             map.add(line);
         }
+    }
+
+    public NetworkMap(String map) {
+        this(Arrays.asList(StringUtils.splitString(map, "\n")));
     }
 
     public void setElement(int x, int y, MapElement element) {

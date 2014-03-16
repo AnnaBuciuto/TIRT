@@ -1,20 +1,24 @@
 package input;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import map.NetworkMap;
+
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class MapReader {
 
-    public List<String> readMap(String fileName) {
-        List<String> lines = new ArrayList<>();
-        String line;
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
+    public NetworkMap readMapFromFile(String fileName) {
+        List<String> lines = readFile(fileName);
+        return new NetworkMap(lines);
+    }
+
+    /*package*/ List<String> readFile(String fileName) {
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(Paths.get(fileName), Charset.defaultCharset());
         } catch (IOException e) {
             e.printStackTrace();
         }

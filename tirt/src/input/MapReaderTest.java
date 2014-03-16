@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
 public class MapReaderTest {
 
     @Test
-    public void testReadMapFromFile() {
+    public void testReadFile() {
         String fileName = "tirt/maps/map1.txt";
         MapReader reader = new MapReader();
-        List<String> map = reader.readMap(fileName);
+        List<String> map = reader.readFile(fileName);
         assertEquals(StringUtils.join(map, "\n"),
                 "xxxxxx\n" +
                         "xxxxxx\n" +

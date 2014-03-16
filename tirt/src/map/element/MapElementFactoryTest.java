@@ -1,4 +1,4 @@
-package map;
+package map.element;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package map;
+package map.element;
 
 public class Obstacle implements MapElement {
 

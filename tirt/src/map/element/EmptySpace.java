@@ -1,4 +1,4 @@
-package map;
+package map.element;
 
 public class EmptySpace implements MapElement {
 

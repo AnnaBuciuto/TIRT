@@ -1,5 +1,8 @@
 package map;
 
+import map.element.MapElement;
+import map.element.MapElementFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
