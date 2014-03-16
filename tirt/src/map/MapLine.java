@@ -10,7 +10,7 @@ public class MapLine {
     public MapLine(String input) {
         line = new ArrayList<>(input.length());
         for (char c : input.toCharArray()) {
-            line.add(MapElement.create(c));
+            line.add(MapElementFactory.create(c));
         }
     }
 

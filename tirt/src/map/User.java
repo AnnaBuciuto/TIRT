@@ -1,10 +1,11 @@
 package map;
 
 
-public class User extends MapElement {
+public class User implements MapElement {
 
     public static final char MAP_KEY = 'u';
 
+    @Override
     public char getMapKey() {
         return MAP_KEY;
     }

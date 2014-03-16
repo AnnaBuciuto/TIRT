@@ -1,7 +1,6 @@
-package input;
+package map;
 
 import com.sun.deploy.util.StringUtils;
-import map.NetworkMap;
 import org.junit.Test;
 
 import java.util.Arrays;
