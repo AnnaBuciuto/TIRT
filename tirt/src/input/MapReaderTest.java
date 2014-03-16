@@ -1,24 +1,27 @@
 package input;
 
-import org.junit.After;
-import org.junit.Before;
+import com.sun.deploy.util.StringUtils;
 import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class MapReaderTest {
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void testReadMapFromFile() {
-
+        String fileName = "tirt/maps/map1.txt";
+        MapReader reader = new MapReader();
+        List<String> map = reader.readMap(fileName);
+        assertEquals(StringUtils.join(map, "\n"),
+                "xxxxxx\n" +
+                        "xxxxxx\n" +
+                        "xxxxux\n" +
+                        "xxxxux\n" +
+                        "uxxxxu"
+        );
     }
+
 }
