@@ -6,7 +6,9 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class NetworkMapTest {
 
@@ -17,11 +19,35 @@ public class NetworkMapTest {
                         "xxuxx\n" +
                         "xxxxu\n" +
                         "uxxxx\n";
-
-        String[] mapAsStringArray = StringUtils.splitString(mapAsString, "\n");
-        List<String> mapAsStringList = Arrays.asList(mapAsStringArray);
-
-        NetworkMap map = new NetworkMap(mapAsStringList);
+        NetworkMap map = createMap(mapAsString);
         assertEquals(mapAsString, map.toString());
     }
+
+    private NetworkMap createMap(String map) {
+        String[] mapAsStringArray = StringUtils.splitString(map, "\n");
+        List<String> mapAsStringList = Arrays.asList(mapAsStringArray);
+        return new NetworkMap(mapAsStringList);
+    }
+
+    @Test
+    public void testGetElement() {
+        String mapAsString =
+                "xxoxx\n" +
+                        "xxuox";
+        NetworkMap map = createMap(mapAsString);
+        MapElement e = map.getElement(2, 1);
+        assertThat(e, instanceOf(User.class));
+    }
+
+    @Test
+    public void testSetElement() {
+        String mapAsString =
+                "uxoxx\n" +
+                        "xxoox";
+        NetworkMap map = createMap(mapAsString);
+        map.setElement(0, 0, new User());
+        MapElement e = map.getElement(0, 0);
+        assertThat(e, instanceOf(User.class));
+    }
+
 }

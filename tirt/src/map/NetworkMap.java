@@ -16,6 +16,15 @@ public class NetworkMap {
         }
     }
 
+    public void setElement(int x, int y, MapElement element) {
+        // TODO
+    }
+
+    public MapElement getElement(int x, int y) {
+        // TODO
+        return new User();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
