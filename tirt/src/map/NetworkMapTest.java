@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 public class NetworkMapTest {
 
     @Test
-    public void testConstructFromStringList() {
+    public void testConstructFromString() {
         String mapAsString =
                 "xxxxx\n" +
                         "xxuxx\n" +
