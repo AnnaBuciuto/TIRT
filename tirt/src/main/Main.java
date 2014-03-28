@@ -15,7 +15,7 @@ public class Main {
         MapController controller = new MapController();
         controller.setMap(map);
         controller.setStrategy(new RandomPlacingStrategy());
-        controller.placeAccessPoints();
+        controller.placeAccessPoints(5);
 
         System.out.println(map);
     }
