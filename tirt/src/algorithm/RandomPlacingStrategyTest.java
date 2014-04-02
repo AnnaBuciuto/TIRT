@@ -9,9 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RandomPlacingStrategyTest {
 
-    /*
-    Test sprawdzający czy wypełniono odpoowiednią ilość EmptySpace'ów
-     */
+
     @Test
     public void testPlaceAccessPoints() {
         String mapString = "xxxxxxxuuuooo\n"
@@ -27,9 +25,7 @@ public class RandomPlacingStrategyTest {
         assertEquals(emptySpacesNumber-map.getEmptySpaces().size(), accessPointsNumber);
     }
 
-    /*
-    Test sprawdzający wyjście poza zakres możliwych EmptySpace'ów
-     */
+
     @Test
     public void testPlaceAccessPointsMoreThanEmptySpaces() {
         String mapString = "xxxxxxxuuuooo\n"

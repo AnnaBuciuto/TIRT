@@ -17,7 +17,7 @@ public class MapController {
     }
 
     public void placeAccessPoints(int n) {
-        strategy.placeAccessPoints(n,map);
+        strategy.placeAccessPoints(n, map);
     }
 
 }

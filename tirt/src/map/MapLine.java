@@ -16,11 +16,13 @@ public class MapLine {
             line.add(MapElementFactory.create(c));
         }
     }
-    public void set(int x, MapElement element) {
-        line.set(x,element);
+
+    public void set(int index, MapElement element) {
+        line.set(index, element);
     }
-    public MapElement get(int x) {
-        return line.get(x);
+
+    public MapElement get(int index) {
+        return line.get(index);
     }
 
     @Override
