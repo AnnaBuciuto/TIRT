@@ -11,7 +11,7 @@ public class RandomPlacingStrategyTest {
 
 
     @Test
-    public void testPlaceAccessPoints() {
+    public void testCheckingIfRandomAccessPointsPlacementIsPlacingProperNumberOfAccessPoints() {
         String mapString = "xxxxxxxuuuooo\n"
                 +"xxxxuuuuuuooo";
         int accessPointsNumber = 5;
@@ -38,6 +38,6 @@ public class RandomPlacingStrategyTest {
         controller.setMap(map);
         controller.setStrategy(new RandomPlacingStrategy());
         controller.placeAccessPoints(accessPointsNumber);
-        assertEquals(map.getEmptySpaces().size(), 0);
+        assertEquals(map.getEmptySpaces().size(), emptySpacesNumber);
     }
 }

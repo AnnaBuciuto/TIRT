@@ -37,8 +37,8 @@ public class NetworkMapTest {
                 "uxoxx\n" +
                         "xxoox";
         NetworkMap map = new NetworkMap(mapAsString);
-        map.setElement(0, 0, new User());
-        MapElement e = map.getElement(0, 0);
+        map.setElement(2, 1, new User());
+        MapElement e = map.getElement(2, 1);
         assertThat(e, instanceOf(User.class));
     }
 

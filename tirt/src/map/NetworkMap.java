@@ -45,7 +45,6 @@ public class NetworkMap {
         return null;
     }
 
-
     public List<MapElement> getEmptySpaces(){
         List<MapElement> emptySpaces = new ArrayList<MapElement>();
         for (MapLine mapLineElement : map){
