@@ -3,7 +3,7 @@ package map;
 
 import com.sun.deploy.util.StringUtils;
 import map.element.MapElement;
-import map.element.User;
+import map.element.EmptySpace;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,25 +25,20 @@ public class NetworkMap {
         this(Arrays.asList(StringUtils.splitString(map, "\n")));
     }
 
-    /**
-     *
-     * @param y - row of map
-     * @param x - column of map
-     * @param element - element to set at specified row and column
-     */
-    public void setElement(int y, int x, MapElement element) {
-        map.get(y).set(x,element);
+
+    public void setElement(int column, int row, MapElement element) {
+        map.get(row).set(column, element);
     }
 
-    public MapElement getElement(int y, int x) {
-        return map.get(y).get(x);
+    public MapElement getElement(int column, int row) {
+        return map.get(row).get(column);
     }
 
-    public int[] getIndex(MapElement e){
-        for (int y=0; y<map.size(); y++){
-            for (int x=0; x<map.get(0).line.size();x++){
-                if (e == this.getElement(y,x)){
-                    return new int[]{y,x};
+    public int[] getIndex(MapElement element){
+        for (int row = 0; row < map.size(); row++){
+            for (int column = 0; column < map.get(0).line.size(); column++){
+                if (element == this.getElement(column, row)){
+                    return new int[]{column, row};
                 }
             }
         }
@@ -55,7 +50,7 @@ public class NetworkMap {
         List<MapElement> emptySpaces = new ArrayList<MapElement>();
         for (MapLine mapLineElement : map){
             for (MapElement element : mapLineElement.line) {
-                if (element.getMapKey() == 'x'){
+                if (element.getMapKey() == EmptySpace.MAP_KEY){
                     emptySpaces.add(element);
                 }
             }
@@ -64,8 +59,8 @@ public class NetworkMap {
     }
 
     public void replace(MapElement current, MapElement desired){
-        int[] index = this.getIndex(current);
-        this.setElement(index[0], index[1], desired);
+        int[] indexes = this.getIndex(current);
+        this.setElement(indexes[0], indexes[1], desired);
     }
 
     @Override
