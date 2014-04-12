@@ -7,7 +7,8 @@ import map.NetworkMap;
 public class MapController {
 
     private PlacingStrategy strategy;
-    private NetworkMap map;
+    public NetworkMap map;
+    public NetworkMap resultMap;
 
     public void setMap(NetworkMap map) {
         this.map = map;
@@ -17,13 +18,14 @@ public class MapController {
         this.strategy = strategy;
     }
 
-    public void placeAccessPoints(int n)  {
+    public NetworkMap placeAccessPoints(int n) {
         try {
-            strategy.placeAccessPoints(n, map);
-        }catch(NotEnoughEmptySpacesException e){
+            resultMap = strategy.placeAccessPoints(n, map.clone());
+        }catch(NotEnoughEmptySpacesException e) {
             //TODO Inform user that there that there is less empty spaces than access points desired
             System.out.println("There is less empty spaces than access points to be placed.");
         }
+        return resultMap;
     }
 
 }

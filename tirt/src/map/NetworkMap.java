@@ -11,7 +11,7 @@ import java.util.List;
 
 public class NetworkMap {
 
-    List<MapLine> map;
+    public List<MapLine> map;
 
     public NetworkMap(List<String> input) {
         map = new ArrayList<>(input.size());
@@ -20,6 +20,7 @@ public class NetworkMap {
             map.add(line);
         }
     }
+    public NetworkMap() {};
 
     public NetworkMap(String map) {
         this(Arrays.asList(StringUtils.splitString(map, "\n")));
@@ -34,10 +35,10 @@ public class NetworkMap {
         return map.get(row).get(column);
     }
 
-    public int[] getIndex(MapElement element){
-        for (int row = 0; row < map.size(); row++){
-            for (int column = 0; column < map.get(0).line.size(); column++){
-                if (element == this.getElement(column, row)){
+    public int[] getIndex(MapElement element) {
+        for (int row = 0; row < map.size(); row++) {
+            for (int column = 0; column < map.get(0).line.size(); column++) {
+                if (element == this.getElement(column, row)) {
                     return new int[]{column, row};
                 }
             }
@@ -45,21 +46,33 @@ public class NetworkMap {
         return null;
     }
 
-    public List<MapElement> getEmptySpaces(){
+    public List<MapElement> getEmptySpaces() {
         List<MapElement> emptySpaces = new ArrayList<MapElement>();
-        for (MapLine mapLineElement : map){
+        for (MapLine mapLineElement : map) {
             for (MapElement element : mapLineElement.line) {
-                if (element.getMapKey() == EmptySpace.MAP_KEY){
+                if (element.getMapKey() == EmptySpace.MAP_KEY) {
                     emptySpaces.add(element);
                 }
             }
         }
         return emptySpaces;
     }
-
-    public void replace(MapElement current, MapElement desired){
+    public void setMap(List<MapLine> map) {
+        this.map = map;
+    }
+    public void replace(MapElement current, MapElement desired) {
         int[] indexes = this.getIndex(current);
         this.setElement(indexes[0], indexes[1], desired);
+    }
+    public NetworkMap clone() {
+        NetworkMap clone = new NetworkMap();
+        List<MapLine> mapClone = new ArrayList<MapLine>();
+        for (MapLine mapLine : this.map) {
+            MapLine mapLineClone = new MapLine(mapLine.toString());
+            mapClone.add(mapLineClone);
+        }
+        clone.setMap(mapClone);
+        return clone;
     }
 
     @Override

@@ -11,6 +11,8 @@ public class Window extends JFrame {
     public final JButton loadMapButton;
     public final JButton runAlgorithmsButton;
     final JPanel buttonsPanel;
+    public final MapPanel mapPanel1, mapPanel2;
+    public final JScrollPane scrollPane1;
     private final ButtonGroup radioButtonGroup;
     final JRadioButton radioButton1;
     final JRadioButton radioButton2;
@@ -56,6 +58,17 @@ public class Window extends JFrame {
         buttonsPanel.add(radioButton2);
         buttonsPanel.add(runAlgorithmsButton);
 
+        ImageSolver imageSolver = new ImageSolver();
+        mapPanel1 = new MapPanel(imageSolver);
+        mapPanel1.setLayout(null);
+        mapPanel1.setBorder(BorderFactory.createLineBorder(Color.red));
+        scrollPane1 = new JScrollPane(mapPanel1);
+        scrollPane1.setBounds(0,0,800,670);
+        scrollPane1.setViewportView(mapPanel1);
+        add(scrollPane1);
+
+
+        mapPanel2 = new MapPanel(imageSolver);
 
     }
 

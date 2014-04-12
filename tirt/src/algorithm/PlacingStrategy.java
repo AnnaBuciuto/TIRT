@@ -5,6 +5,6 @@ import map.NetworkMap;
 
 public interface PlacingStrategy {
 
-    public void placeAccessPoints(int numberOfAccessPoints, NetworkMap map) throws NotEnoughEmptySpacesException;
+    public NetworkMap placeAccessPoints(int numberOfAccessPoints, NetworkMap map) throws NotEnoughEmptySpacesException;
 
 }

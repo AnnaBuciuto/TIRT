@@ -1,5 +1,6 @@
 package main;
 
+import gui.ImageSolver;
 import gui.Window;
 
 
@@ -10,7 +11,7 @@ public class Main {
 //        MapReader reader = new MapReader();
 //        NetworkMap map = reader.readMapFromFile(fileName);
 //
-        MapController controller = new MapController();
+        MapController mapController = new MapController();
 //        controller.setMap(map);
 //        controller.setStrategy(new RandomPlacingStrategy());
 //        controller.placeAccessPoints(5);
@@ -18,11 +19,9 @@ public class Main {
 
         EventHandler eventHandler = new EventHandler();
         Window mainWindow = new Window("", eventHandler);
-        eventHandler.addReference(mainWindow);
+        eventHandler.addReferences(mainWindow,mapController);
 
         mainWindow.setVisible(true);
-
-
 
     }
 

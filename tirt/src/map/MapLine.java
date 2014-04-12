@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MapLine {
 
-    List<MapElement> line;
+    public List<MapElement> line;
 
     public MapLine(String input) {
         line = new ArrayList<>(input.length());
