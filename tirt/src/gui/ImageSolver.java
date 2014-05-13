@@ -1,9 +1,6 @@
 package gui;
 
-import map.element.AccessPoint;
-import map.element.EmptySpace;
-import map.element.Obstacle;
-import map.element.User;
+import map.element.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -13,13 +10,16 @@ import java.io.IOException;
 
 public class ImageSolver {
 
-    Image emptySpaceImg, accessPointImg, obstacleImg, userImg;
+    Image emptySpaceImg, accessPointImg, obstacleImg, windowImg, doorImg, userImg;
     public ImageSolver() {
         try {
             emptySpaceImg = ImageIO.read(new File("tirt/img/emptySpace.png"));
             accessPointImg = ImageIO.read(new File("tirt/img/accessPoint.png"));
             obstacleImg = ImageIO.read(new File("tirt/img/obstacle.jpg"));
+            windowImg = ImageIO.read(new File("tirt/img/window.png"));
+            doorImg = ImageIO.read(new File("tirt/img/door.png"));
             userImg = ImageIO.read(new File("tirt/img/user.jpg"));
+
         }catch(IOException e) {
             e.printStackTrace();
         }
@@ -32,6 +32,10 @@ public class ImageSolver {
                 return accessPointImg;
             case Obstacle.MAP_KEY:
                 return obstacleImg;
+            case WindowObstacle.MAP_KEY:
+                return windowImg;
+            case Door.MAP_KEY:
+                return doorImg;
             case User.MAP_KEY:
                 return userImg;
         }

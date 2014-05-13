@@ -12,5 +12,4 @@ public class MapLineTest {
         MapLine mapLine = new MapLine(line);
         assertEquals(mapLine.toString(), line);
     }
-
 }

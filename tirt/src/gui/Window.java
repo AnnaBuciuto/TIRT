@@ -13,11 +13,6 @@ public class Window extends JFrame {
     final JPanel buttonsPanel;
     public final MapPanel mapPanel1, mapPanel2;
     public final JScrollPane scrollPane1;
-    private final ButtonGroup radioButtonGroup;
-    final JRadioButton radioButton1;
-    final JRadioButton radioButton2;
-    private final JLabel frequencyLabel;
-
 
     public Window(String title, ActionListener listener) {
         super(title);
@@ -36,26 +31,11 @@ public class Window extends JFrame {
         loadMapButton.setBounds(10, 10, 170, 30);
         loadMapButton.addActionListener(listener);
 
-        frequencyLabel = new JLabel("Choose frequency:");
-        frequencyLabel.setBounds(10, 50, 170, 20);
-
-        radioButton1 = new JRadioButton("2,4 GHz");
-        radioButton1.setSelected(true);
-        radioButton1.setBounds(10, 70, 170, 20);
-        radioButton2 = new JRadioButton("5,0 GHz");
-        radioButton2.setBounds(10, 90, 170, 20);
-        radioButtonGroup = new ButtonGroup();
-        radioButtonGroup.add(radioButton1);
-        radioButtonGroup.add(radioButton2);
-
         runAlgorithmsButton = new JButton("Run algorithms");
-        runAlgorithmsButton.setBounds(10, 130, 170, 30);
+        runAlgorithmsButton.setBounds(10, 50, 170, 30);
         runAlgorithmsButton.addActionListener(listener);
 
         buttonsPanel.add(loadMapButton);
-        buttonsPanel.add(frequencyLabel);
-        buttonsPanel.add(radioButton1);
-        buttonsPanel.add(radioButton2);
         buttonsPanel.add(runAlgorithmsButton);
 
         ImageSolver imageSolver = new ImageSolver();
@@ -67,10 +47,6 @@ public class Window extends JFrame {
         scrollPane1.setViewportView(mapPanel1);
         add(scrollPane1);
 
-
         mapPanel2 = new MapPanel(imageSolver);
-
     }
-
-
 }

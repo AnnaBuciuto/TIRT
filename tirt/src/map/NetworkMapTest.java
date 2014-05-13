@@ -41,5 +41,4 @@ public class NetworkMapTest {
         MapElement e = map.getElement(2, 1);
         assertThat(e, instanceOf(User.class));
     }
-
 }

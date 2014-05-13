@@ -26,7 +26,6 @@ public class NetworkMap {
         this(Arrays.asList(StringUtils.splitString(map, "\n")));
     }
 
-
     public void setElement(int column, int row, MapElement element) {
         map.get(row).set(column, element);
     }
@@ -35,9 +34,17 @@ public class NetworkMap {
         return map.get(row).get(column);
     }
 
+    public int getRowNumber() {
+        return map.size();
+    }
+
+    public int getColumnNumber() {
+        return map.get(0).line.size();
+    }
+
     public int[] getIndex(MapElement element) {
-        for (int row = 0; row < map.size(); row++) {
-            for (int column = 0; column < map.get(0).line.size(); column++) {
+        for (int row = 0; row < getRowNumber(); row++) {
+            for (int column = 0; column < getColumnNumber(); column++) {
                 if (element == this.getElement(column, row)) {
                     return new int[]{column, row};
                 }
@@ -75,6 +82,10 @@ public class NetworkMap {
         return clone;
     }
 
+    public NetworkSignalCalculator getNetworkSignalCalculator(){
+        return new NetworkSignalCalculator(this);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -83,5 +94,4 @@ public class NetworkMap {
         }
         return sb.toString();
     }
-
 }

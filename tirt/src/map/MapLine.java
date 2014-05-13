@@ -33,5 +33,4 @@ public class MapLine {
         }
         return sb.toString();
     }
-
 }

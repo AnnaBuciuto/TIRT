@@ -4,6 +4,7 @@ import algorithm.RandomPlacingStrategy;
 import gui.Window;
 import input.MapReader;
 import map.NetworkMap;
+import map.NetworkSignalCalculator;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -38,14 +39,18 @@ public class EventHandler implements ActionListener {
                 NetworkMap map = mapReader.readMapFromFile(fc.getSelectedFile().getAbsolutePath());
                 mapControllerReference.setMap(map);
                 windowReference.mapPanel1.paintMap(map);
-
             }
         }
         else {
             if (source == windowReference.runAlgorithmsButton) {
-                //TODO Run algorithms
+                //to delete
+                RandomPlacingStrategy strategy = new RandomPlacingStrategy();
+                mapControllerReference.setStrategy(strategy);
+                NetworkMap randomizedMap = mapControllerReference.placeAccessPoints(2);
+                windowReference.mapPanel1.paintMap(randomizedMap);
+                NetworkSignalCalculator calc = randomizedMap.getNetworkSignalCalculator();
+                System.out.println(calc.bestSignalPowerAtPoint(1,1));
             }
         }
-
     }
 }

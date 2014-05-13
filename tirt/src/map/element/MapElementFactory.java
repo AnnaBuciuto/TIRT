@@ -6,6 +6,10 @@ public class MapElementFactory {
         switch (c) {
             case Obstacle.MAP_KEY:
                 return new Obstacle();
+            case WindowObstacle.MAP_KEY:
+                return new WindowObstacle();
+            case Door.MAP_KEY:
+                return new Door();
             case User.MAP_KEY:
                 return new User();
             case EmptySpace.MAP_KEY:
